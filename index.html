@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BILAL — Fast Food</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="#" class="logo">BILAL<span>.</span></a>
+  <nav>
+    <a href="#home">Главная</a>
+    <a href="#menu">Меню</a>
+    <a href="#contact">Контакты</a>
+  </nav>
+  <button class="cart-btn" onclick="showCart()">
+    🛒 Корзина <span id="cart-count">0</span>
+  </button>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="tag">ВКУС, КОТОРЫЙ ТЫ ЗАПОМНИШЬ</p>
+    <h1>WELCOME TO<br><span>BILAL</span></h1>
+    <p>Готовим с любовью. Подаём с удовольствием.</p>
+    <a href="#menu" class="main-btn">Посмотреть меню →</a>
+  </div>
+</section>
+
+<section class="menu-section" id="menu">
+  <div class="section-heading">
+    <p class="tag">НАШЕ МЕНЮ</p>
+    <h2>Выбирай свой <span>вкус</span></h2>
+  </div>
+
+  <div class="categories">
+    <button class="active" onclick="filterMenu('all', this)">Все</button>
+    <button onclick="filterMenu('burger', this)">Бургеры</button>
+    <button onclick="filterMenu('pizza', this)">Пицца</button>
+    <button onclick="filterMenu('snack', this)">Закуски</button>
+    <button onclick="filterMenu('drink', this)">Напитки</button>
+  </div>
+
+  <div class="products" id="products"></div>
+</section>
+
+<section class="contact" id="contact">
+  <p class="tag">МЫ ЖДЁМ ТЕБЯ</p>
+  <h2>Заглядывай в <span>BILAL</span></h2>
+  <p>Вкусная еда и отличное настроение!</p>
+  <a href="https://wa.me/" class="main-btn">Связаться с нами</a>
+</section>
+
+<footer>
+  <a href="#" class="logo">BILAL<span>.</span></a>
+  <p>© 2026 BILAL Fast Food. Все права защищены.</p>
+  <button onclick="adminLogin()" class="admin-link">Администратор</button>
+</footer>
+
+<div class="modal" id="cart-modal">
+  <div class="modal-box">
+    <button class="close" onclick="closeCart()">×</button>
+    <h2>Твоя корзина 🛒</h2>
+    <div id="cart-items"></div>
+    <h3 id="total">Итого: 0 сом</h3>
+    <button class="main-btn" onclick="checkout()">Оформить заказ</button>
+  </div>
+</div>
+
+<div class="modal" id="admin-modal">
+  <div class="modal-box">
+    <button class="close" onclick="closeAdmin()">×</button>
+    <h2>Панель владельца</h2>
+    <input id="admin-name" placeholder="Название блюда">
+    <input id="admin-price" type="number" placeholder="Цена в сомах">
+    <input id="admin-image" placeholder="Ссылка на фотографию">
+    <select id="admin-category">
+      <option value="burger">Бургеры</option>
+      <option value="pizza">Пицца</option>
+      <option value="snack">Закуски</option>
+      <option value="drink">Напитки</option>
+    </select>
+    <button class="main-btn" onclick="addProduct()">Добавить блюдо</button>
+    <div id="admin-products"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
